@@ -1,0 +1,7 @@
+Python, el popular lenguaje de programación se presta especialmente bien para la creación de programas de web scraping. 
+Puesto que las páginas web han de ser constantemente modificadas y actualizadas, sus contenidos cambian con el tiempo. 
+Puede que cambie su diseño, por ejemplo, o que se les añadan nuevos elementos. 
+Los web scrapers se desarrollan teniendo en cuenta la estructura específica de una página web, de forma que
+si dicha estructura cambia, el scraper también debe modificarse. 
+Este proceso resulta especialmente sencillo con Python.
+Asimismo, Python tiene como putnos fuertes el procesamiento de texto y la paertura de recursos web, dos

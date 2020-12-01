@@ -1,0 +1,8 @@
+setup.py
+Calculos_matem_ticos_b_sicos.egg-info/PKG-INFO
+Calculos_matem_ticos_b_sicos.egg-info/SOURCES.txt
+Calculos_matem_ticos_b_sicos.egg-info/dependency_links.txt
+Calculos_matem_ticos_b_sicos.egg-info/top_level.txt
+modulos_matematicos/__init__.py
+modulos_matematicos/Calculos_basicos/Funciones_matematicas.py
+modulos_matematicos/Calculos_basicos/__init__.py
