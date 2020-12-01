@@ -11,9 +11,9 @@ mi_lista=["jose","pedro","thania","oscar","pablo"]                              
 #print(mi_lista3[:])
 #print(mi_lista[:])                                                                                                     # Impresión de una lista completa.
 #print(mi_lista[0:3])                                                                                                   # Impresión de los elementos comprendidos entre los índices 0 y 3, el 0 se incluye, el 3 se excluye.
-#print(mi_lista[:3])                                                                                                   # Impresión de los elementos comprendidos entre los índices 0 y 3, el 0 no se representa, el 3 se excluye.
-#print(mi_lista[2:])                                                                                                   # Impresión de los elementos comprendidos entre el índice 2 y el final.
-#print(mi_lista[2])                                                                                                   # Impresión del elemento con el índice indicado.
+#print(mi_lista[:3])                                                                                                    # Impresión de los elementos comprendidos entre los índices 0 y 3, el 0 no se representa, el 3 se excluye.
+#print(mi_lista[2:])                                                                                                    # Impresión de los elementos comprendidos entre el índice 2 y el final.
+#print(mi_lista[2])                                                                                                     # Impresión del elemento con el índice indicado.
 mi_lista.append("rodrigo")                                                                                              # Adicción de un elemento a la lista (sólo de uno en uno).
 mi_lista.extend(["santiago","francisco","joana"])                                                                       # Extensión de una lista, se añadirán los elementos a la lista ya creada.
 mi_lista.insert(3,"rene")                                                                                               # Adicción de un elemento a la lista en un índice determinado.
