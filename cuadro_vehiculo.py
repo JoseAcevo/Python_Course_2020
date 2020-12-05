@@ -133,5 +133,5 @@ V1 = Contacto()
 V1.llave_electronica(True)
 V1.embrague()
 V1.freno()
-V1.airbag(True, True, True, True)
+#V1.airbag(True, True, True, True)
 
