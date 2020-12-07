@@ -70,19 +70,16 @@ class Contacto:
             else:
                 return "Pise pedales freno y embrague para arrancar."
 
-
     def diagnosis(self, airbag, Abs, oil, battery):
 
         if airbag:
             print("Sistema de retención de ocupantes <<OK>>")
         elif airbag(False):
-            print("Sistema de retención defectuoso acuda al taller")    # Esto no vale....
+            print("Sistema de retención defectuoso acuda al taller")  # Esto no vale....
         elif Abs:
             print("Sistema de frenos <<OK>>")
         elif Abs(False):
             print("Sistema de frenos defectuoso, acuda al taller")
-
-
 
     def airbag(self, conductor, acompanante, cintoA, cintoB):
 
@@ -95,10 +92,8 @@ class Contacto:
             V1.diagnosis(True, False, False, False)
             self.airbag_light = False
 
-
         if not self.Aconductor or self.Aacompanante or self.Pacompanante or self.Pconductor:
             V1.diagnosis(False, False, False, False)
-
 
     def Abs(self, avi, avd, ari, ard, pedalfreno):
 
@@ -133,5 +128,4 @@ V1 = Contacto()
 V1.llave_electronica(True)
 V1.embrague()
 V1.freno()
-#V1.airbag(True, True, True, True)
-
+V1.airbag(True, True, True, True)
