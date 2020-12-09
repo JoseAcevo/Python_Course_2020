@@ -1,25 +1,18 @@
-print(input("Pulse botón StopStart para contacto."))
-
-
 class Contacto:
-
     def __init__(self):
         self.arranque = False
         self.Pedal_Freno = False
         self.Pedal_Embrague = False
-        self.airbag_light = True
-        self.Abs_light = True
-        self.oil_light = True
-        self.battery_light = True
 
     def llave_electronica(self, presente):
         self.Llave_Electronica = presente
 
         if self.Llave_Electronica:
+            print(input("Pulse Stop and Start para poner contacto....."))
             return V1.inmov_1(True)
 
         else:
-            return V1.inmov_1(False)
+            return V1.denegacion_servicio()
 
     def inmov_1(self, inmo):
         self.inmo_1 = inmo
@@ -32,7 +25,7 @@ class Contacto:
 
     @staticmethod
     def denegacion_servicio():
-        return "Llave electrónica no reconocida o defectuosa."
+        print("Llave electrónica no reconocida o defectuosa.")
 
     def arrancar(self, autorizacion):
         self.arranque = autorizacion
@@ -48,10 +41,8 @@ class Contacto:
     def embrague(self):
         self.Pedal_Embrague = True
 
-        """Presionar el botón sin pisar pedales 
-        pondrá el contacto del vehiculo"""
-
-    def stopstart_engine(self):  # BOTON DE ARRRANQUE
+    @property
+    def stopstart_engine(self):
 
         if self.inmo_1 and self.Pedal_Embrague and self.Pedal_Freno:
             return V1.arrancar(True)
@@ -68,64 +59,105 @@ class Contacto:
                 return "Pise el pedal del embrague para arrancar."
 
             else:
-                return "Pise pedales freno y embrague para arrancar."
-
-    def diagnosis(self, airbag, Abs, oil, battery):
-
-        if airbag:
-            print("Sistema de retención de ocupantes <<OK>>")
-        elif airbag(False):
-            print("Sistema de retención defectuoso acuda al taller")  # Esto no vale....
-        elif Abs:
-            print("Sistema de frenos <<OK>>")
-        elif Abs(False):
-            print("Sistema de frenos defectuoso, acuda al taller")
-
-    def airbag(self, conductor, acompanante, cintoA, cintoB):
-
-        self.Aconductor = conductor
-        self.Aacompanante = acompanante
-        self.Pconductor = cintoA
-        self.Pacompanante = cintoB
-
-        if self.Aconductor and self.Aacompanante and self.Pconductor and self.Pacompanante:
-            V1.diagnosis(True, False, False, False)
-            self.airbag_light = False
-
-        if not self.Aconductor or self.Aacompanante or self.Pacompanante or self.Pconductor:
-            V1.diagnosis(False, False, False, False)
-
-    def Abs(self, avi, avd, ari, ard, pedalfreno):
-
-        self.avi = avi
-        self.avd = avd
-        self.ard = ard
-        self.ari = ari
-        self.Pedal_Freno = pedalfreno
-
-        if self.avi and self.avd and self.ard and self.ari and self.Pedal_Freno:
-            V1.diagnosis()
-            self.airbag_light = False
-            return "Sistema frenos <<OK>>"
-
-        if not self.avi or self.avd or self.ari or self.ari or self.Pedal_Freno:
-            return "Sistema frenos defectuoso, acuda al taller"
-
-    def oil(self):
-        self.oil = False
-        pass
-
-    def battery(self):
-        self.battery = False
-        pass
+                return "Pise pedales freno/embrague para arrancar."
 
     @staticmethod
     def motor_arranque():
         return "El motor de arranque gira"
 
 
-V1 = Contacto()
-V1.llave_electronica(True)
+# MODULO CONTROL AIRBAG.
+# AIRBAGS SIGNALS
+
+# FRONT-LEFT = OK OR NOOK
+# IF OK:
+# V1.AIRBAG(TRUE)
+# ELSE:
+# V1.AIRBAG(FALSE)
+
+# FRONT-RIGHT = OK OR NOOK
+# IF OK:
+# V1.AIRBAG(TRUE)
+
+# ELSE:
+# V1.AIRBAG(FALSE)
+
+
+# PRETENS SIGNALS
+
+# FRONT-LEFT = OK OR NOOK
+# IF OK:
+# V1.AIRBAG(TRUE)
+# ELSE:
+# V1.AIRBAG(FALSE)
+
+# FRONT-RIGHT = OK OR NOOK
+# IF OK:
+# V1.AIRBAG(TRUE)
+
+# ELSE:
+# V1.AIRBAG(FALSE)
+
+
+# PRESENCE SENSOR
+
+# FRONT RIGHT SEAT = OK OR NOOK
+# IF OK:
+# V1.AIRBAG(TRUE)
+# ELSE:
+# V1.AIRBAG(FALSE)
+
+
+class Diagnosis(Contacto):
+    def __init__(self):
+        super().__init__()
+        self.airbag_light = True
+        self.abs_light = True
+        self.battery_light = True
+        self.oil_light = True
+
+    def calculador_control_airbag(self, front_left, front_right, pre_left, pre_right, presence_sensor):
+        self.Driver_Airbag = front_left
+        self.Copilot_Airbag = front_right
+        self.pre_left = pre_left
+        self.pre_right = pre_right
+        self.presence = presence_sensor
+
+        if self.Driver_Airbag and self.Copilot_Airbag and self.pre_left and self.pre_right and presence_sensor:
+            return V1.airbag(False)
+        else:
+            return V1.airbag(True)
+
+    def airbag(self, diag):
+        self.airbag_light = diag
+        if self.airbag_light:
+            print('Sistema de retención de pasajeros defectuoso, ACUDA AL TALLER.')
+        else:
+            print("Sistema de retención de pasajeros funciona correctamente")
+
+    def abs(self, diag):
+        self.abs_light = diag
+        if self.abs_light:
+            print("Sistema electrónico de control de frenado y estabilidad defectuoso, ACUDA AL TALLER.")
+        else:
+            print("Sistema electrónico de control de frenado y estabilidad funciona correctamente")
+
+    def battery(self, diag):
+        self.battery_light = diag
+        if self.battery_light:
+            print("Sistema electrónico de control de carga de la batería defectuoso, ACUDA AL TALLER.")
+        else:
+            print("Sistema electrónico de control de carga de la batería funciona correctamente")
+
+    def oil(self):
+        self.oil_light = False
+        pass
+
+
+V1 = Diagnosis()
 V1.embrague()
 V1.freno()
-V1.airbag(True, True, True, True)
+# Reconocimiento de la llave de contacto.
+V1.llave_electronica(False)
+V1.calculador_control_airbag(False, True, True, True, True)
+print(V1.stopstart_engine)
