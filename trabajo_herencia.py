@@ -1,4 +1,4 @@
-class Persona():                                                                                                                            # Clase padre (Superclase).
+class Persona:                                                                                                                            # Clase padre (Superclase).
     def __init__(self, nombre, apellido, edad):                                                                                             # Método constructor de la clase el cual otorgará unas propiedades/estado inicial a todos los objetos/ instancias que pertenezcan a la clase.
         
         self.nombre=nombre                                                                                                                  #

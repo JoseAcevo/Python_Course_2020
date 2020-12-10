@@ -1,6 +1,6 @@
 import os
 import io
-#os.makedirs('prueba_Directorio')
+os.makedirs('prueba_Directorio')
 
 os.chdir('prueba_Directorio')
 primer_archivo = open('primerArchivo.txt', 'w')
@@ -11,4 +11,3 @@ primer_archivo.write('The design of all built-in operating system dependent modu
 primer_archivo.close()
 
 print(os.getcwd())
-
