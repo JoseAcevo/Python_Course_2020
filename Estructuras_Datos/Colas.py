@@ -1,6 +1,6 @@
 """  Queue:
-F.I.F.O : First In First Out.
-L.I.F.O : Last In First Out.
+F.I.F.O : First In First Out.<------>Colas
+L.I.F.O : Last In First Out.<------->Pilas
 Priority : Especificar prioridad.
 *¿Programación concurrente?
 *¿Threats? """

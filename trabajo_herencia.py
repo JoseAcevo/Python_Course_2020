@@ -1,4 +1,4 @@
-class Persona:                                                                                                                            # Clase padre (Superclase).
+class Persona:                                                                                                                              # Clase padre (Superclase).
     def __init__(self, nombre, apellido, edad):                                                                                             # Método constructor de la clase el cual otorgará unas propiedades/estado inicial a todos los objetos/ instancias que pertenezcan a la clase.
         
         self.nombre=nombre                                                                                                                  #
@@ -24,7 +24,7 @@ class Estudiante(Persona):                                                      
 
     def __init__(self, nombre, apellido, edad, escuela):                                                                                    # Sobreescritura/ invalidación del método constructor heredado de la clase padre (Persona), para crear el constructor de la clase (estudiante).
         super().__init__(nombre, apellido, edad)                                                                                            # Llamada al método constructor de la clase padre, para no tener que repetir el código de su interior, y que el constructor de la subclase sepa que hacer con las variables/campos de clase (nombre, apellido, edad).
-        self.escuela=escuela                                                                                                                # Propiedad/ campo de clase. (Estudiante).
+        self.escuela = escuela                                                                                                                # Propiedad/ campo de clase. (Estudiante).
 
     def getdatosPersonales(self):                                                                                                           # Método/ comportamiento (Clase Estudiante), para la devolución de los datos personales (getter).
         return super().getdatosPersonales() + " Escuela: " + self.escuela                                                                   # Llamada al método (getdatosPersonales), de la clase padre, para añardirle la variable propia de la clase (estudiante), (escuela).
