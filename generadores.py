@@ -27,7 +27,7 @@ def numeros_pares(limite):
         num += 1
 
 
-suc_pares = numeros_pares (6)  # El generador (numeros_pares), nos devuelve un objeto iterable, y lo almacena en una variable, (suc_pares), en este caso.
+suc_pares = numeros_pares(6)  # El generador (numeros_pares), nos devuelve un objeto iterable, y lo almacena en una variable, (suc_pares), en este caso.
 
 print(next(suc_pares))
 

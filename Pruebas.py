@@ -35,3 +35,5 @@ def capital_cities(**kwargs):
 
 
 print(capital_cities(China='Beijing', Cairo='Egipt', Rome='Italy'))
+
+

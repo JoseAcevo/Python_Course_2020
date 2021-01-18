@@ -1,6 +1,6 @@
 class Persona:                                                                                           # Clase padre (superclase)
 
-    def __init__(self, nombre, apellido, edad):                                                          # Método constructor de la clase persona.
+    def __init__(self, nombre, apellido, edad):                                                          # Método constructor de la clase padre/Superclase
 
         self.nombre = nombre                                                                             #
         self.apellido = apellido                                                                         # Variable/ campo de clase.
