@@ -1,8 +1,8 @@
-# def sum(*args):
-# value=0
-# for n in args:
-# value +=n
-# return value
+#def sum(*args):
+ #value=0
+ #for n in args:
+ #value +=n
+  #return value
 # print(sum(5,5,4,7,2,4,6))
 
 # a="Jose"
