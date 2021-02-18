@@ -1,5 +1,6 @@
 import os
 import io
+os.chdir('Archivos_Externos')
 os.makedirs('prueba_Directorio')
 
 os.chdir('prueba_Directorio')
@@ -11,3 +12,5 @@ primer_archivo.write('The design of all built-in operating system dependent modu
 primer_archivo.close()
 
 print(os.getcwd())
+
+print(os.listdir("./"))

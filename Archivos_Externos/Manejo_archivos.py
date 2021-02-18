@@ -3,7 +3,7 @@
 # Apetura
 # Manipulación
 # Cierre
-
+# STREAM: Vía de flujo de datos entre el archivo externo y el programa de python(memoria).
 # Creación/ apertura de un archivo externo en modo escritura (w).
 
 # from io import open                                                                        # Importación del método open del módulo IO.
