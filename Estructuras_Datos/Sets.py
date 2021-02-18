@@ -11,6 +11,7 @@ planetas=set()                                                              # Cr
 for planeta in sistema_solar.split(","):                                    # Bucle For para programa versión1
     planetas.add(planeta)                                                   # Definición bucle for para programa version1
 
+
 print(planetas)                                                             # Linea común ambas versiones.
 print(len(planetas))                                                        # Linea común ambas versiones.
 

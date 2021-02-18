@@ -19,7 +19,7 @@ class ListaPersonas:                                                        # Cr
 
     def __init__(self):                                                     # Creación del método consructor de la clase (Lista_Personas).
 
-        lista_personas = open("FicheroExterno", "ab+")                      # Cración de una variable (EN MEMORIA), encargada de crear y abrir el fichero externo en el cual volcaremos los datos de la lista (Personas).
+        lista_personas = open("FicheroExterno.pckl", "ab+")                 # Cración de una variable (EN MEMORIA), encargada de crear y abrir el fichero externo en el cual volcaremos los datos de la lista (Personas).
         lista_personas.seek(0)                                              # Recolocación (seek) del cursor en la posición cero en el fichero Externo, para que posteriormente podamos leer e imprimir la info almacenada en él.
 
         try:  # Intenta:
@@ -43,7 +43,7 @@ class ListaPersonas:                                                        # Cr
             print(p)                                                                                  # Impresión de la info almacenada en la lista (personas=[])
 
     def guardado_personas_FicheroExterno(self):                                                       # Método encargado de guardar la info en el FicheroExterno.
-        lista_personas = open("FicheroExterno", "wb")                                                 # Creamos/abrimos la (lista_personas) en memoria en modo (escritura binaria (wb)).
+        lista_personas = open("FicheroExterno.pckl", "wb")                                            # Creamos/abrimos la (lista_personas) en memoria en modo (escritura binaria (wb)).
         pickle.dump(self.personas, lista_personas)                                                    # Volcado (.dump) de la info guardada en la lista (personas=[]) en el FicheroExterno a través de la variable EN MEMORIA (lista_personas).
         lista_personas.close()                                                                        # Cerrado de la variable EN MEMORIA (lista_personas).
         del lista_personas  # Borrado de la variable (lista_personas), de la MEMORIA.
@@ -54,9 +54,9 @@ class ListaPersonas:                                                        # Cr
             print(p)  # Impresión
 
 
-p = Persona("Ana", "femenino", 19)                                                                    # Creación un objeto (p) de clase (Persona).
+P = Persona('Raquel', 'femenino', 23)                                                                 # Creación un objeto (p) de clase (Persona).
 mi_lista = ListaPersonas()                                                                            # Instanciación de la clase (Lista_Personas), para poder crear objetos de esa clase.
-mi_lista.agregarPersonas(p)                                                                           # Uso del objeto (mi_lista) de la clase (Lista_Personas), para llamar al método (agregarPersonas) y poder pasarle el objeto previamente creado (p), por parámetro.
+mi_lista.agregarPersonas(P)                                                                           # Uso del objeto (mi_lista) de la clase (Lista_Personas), para llamar al método (agregarPersonas) y poder pasarle el objeto previamente creado (p), por parámetro.
 mi_lista.mostrarPersonas()                                                                            # Uso de la instancia (mi_lista), para mostrar la info almacenada en la lista (personas=[])
 mi_lista.mostrar_info_FicheroExterno()                                                                # Uso de la instancia (mi_lista), para mostrar la info almacenada en el FicheroExterno.
 
