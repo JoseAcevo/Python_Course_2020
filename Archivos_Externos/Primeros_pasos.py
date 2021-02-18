@@ -28,7 +28,8 @@ elif Modo == "r":
             indice = clave.index(busqueda)
 
             print(
-                f"En esta vuelta de bucle se ha/n encontrado el/los término/s seleccionado/s en la siguente ubicación: \n{str.capitalize(clave[:])}\nCon el índice: {str([indice])}")
+                f"En esta vuelta de bucle se ha/n encontrado el/los término/s seleccionado/s en "
+                f"la siguente ubicación: \n{str.capitalize(clave[:])}\nCon el índice: {str([indice])}")
             print(" ")
 
 

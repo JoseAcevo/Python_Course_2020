@@ -16,7 +16,7 @@
 # Creación y apertura de un archivo externo en modo lectura (r).
 
 # from io import open                                                                         # Importación del método open del módulo IO.
-# archivo_texto = open("archivo.txt", "r")                                                      # Creación y apertura del archivo externo (archivo.txt), en modo lectura (r), mediante la variable en memoria (archivo_texto).
+# archivo_texto = open("archivo.txt", "r")                                                    # Creación y apertura del archivo externo (archivo.txt), en modo lectura (r), mediante la variable en memoria (archivo_texto).
 # texto=archivo_texto.read()                                                                  # Creación de una variable (texto), para poder leer la info almacenada en la variable en memoria (archivo.texto).
 # archivo_texto.close()                                                                       # Cierre de la variable en memoria (archivo_texto)
 # print(texto)                                                                                # Impresión en pantalla de la info almacenada en la variable (texto).

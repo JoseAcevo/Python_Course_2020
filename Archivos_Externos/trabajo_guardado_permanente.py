@@ -7,10 +7,10 @@ class Persona:                                                              # Cr
         self.nombre = nombre                                                #
         self.genero = genero                                                # Campo/ variable de clase.
         self.edad = edad                                                    #
-        print("Se ha creado un nuevo objeto/persona llamada: ", self.nombre) # Impresión en pantalla de la confirmación de la creación del objeto.
+        print(f"Se ha creado un nuevo objeto/persona llamada: {self.nombre}") # Impresión en pantalla de la confirmación de la creación del objeto.
 
     def __str__(self):                                                      # Método STR con el cual se convierte a string la información de un objeto.
-        return "{} {} {}".format(self.nombre, self.genero, self.edad)       # Devolución de la información pasada por parámetros al método constructor, aplicándole el formato correspondiente.
+        return f"{self.nombre} {self.genero} {self.edad}"                   # Devolución de la información pasada por parámetros al método constructor, aplicándole el formato correspondiente.
 
 
 class ListaPersonas:                                                        # Creación de una nueva clase (Lista_Personas).
@@ -24,7 +24,7 @@ class ListaPersonas:                                                        # Cr
 
         try:  # Intenta:
             self.personas = pickle.load(lista_personas)                                              # Cargar los datos almacenados en la variable (EN MEMORIA(lista_personas)) en la lista (pesonas=[]), para poder leerla.
-            print("Se han cargado {} personas desde el FicheroExterno.".format(len(self.personas)))  # Confirmación de la carga de la información en la lista (personas =[]). aplicándole el formato correspondiente junto al método (len).
+            print(f"Se han cargado {len(self.personas)} personas desde el FicheroExterno.")           # Confirmación de la carga de la información en la lista (personas =[]). aplicándole el formato correspondiente junto al método (len).
 
         except:  # Excepto:
             print("Se acaba de añadir un nuevo elemento al FicheroExterno")                           # Si es la primera vez que se ejecuta el programa el fichero externo estará vacío, en ese caso se imprimirá un mensaje de advertencia.
@@ -46,7 +46,7 @@ class ListaPersonas:                                                        # Cr
         lista_personas = open("FicheroExterno", "wb")                                                 # Creamos/abrimos la (lista_personas) en memoria en modo (escritura binaria (wb)).
         pickle.dump(self.personas, lista_personas)                                                    # Volcado (.dump) de la info guardada en la lista (personas=[]) en el FicheroExterno a través de la variable EN MEMORIA (lista_personas).
         lista_personas.close()                                                                        # Cerrado de la variable EN MEMORIA (lista_personas).
-        del (lista_personas)                                                                          # Borrado de la variable (lista_personas), de la MEMORIA.
+        del lista_personas  # Borrado de la variable (lista_personas), de la MEMORIA.
 
     def mostrar_info_FicheroExterno(self):                                                            # Método encargado de mostrar la info almacenada en el FicheroExterno.
         print("La información almacenada en el fichero externo es la siguiente: ")                    # Impresión en pantalla de dicha info.
