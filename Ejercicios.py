@@ -125,67 +125,75 @@
 # Cuando el usuario averigüe finalmente el número aleatorio, el programa imprimirá en consola
 # “Correcto. Has utilizado…” y el nº de intentos consumidos
 
-print("Hazlo en menos de 10 intentos...(Si puedes.... :-) ")
+import random
+
+print("Come on man....Play with me...Do it in less than 10 attempts... If you can....:-) ")
 
 
-def juego_aleatorio():
-    import random
-    numero_al = random.randint(1, 100)
-    N1 = int(input("Introduzca un número entre 1 y 100 por favor: "))
-    intentos = 1
+def main():
+    al_number = random.randint(1, 100)
+    n_user = int(input("Enter a number between one and one hundred please: "))
+    attempts = 1
 
-    while numero_al != N1:
+    while al_number != n_user:
+        try:
+            if n_user < al_number:
+                print("The entered number must be higher.")
+                attempts += 1
+                n_user = int(input("Enter a new number please: "))
 
-        if N1 < numero_al:
-            print("El número introducido ha de ser mayor.")
-            intentos += 1
-            N1 = int(input("Introduzca un nuevo número: "))
+            if n_user > al_number:
+                print("The entered number must be lower.")
+                attempts += 1
+                n_user = int(input("Enter a new number please: "))
 
-        if N1 > numero_al:
-            print("El número introducido ha de ser menor.")
-            intentos += 1
-            N1 = int(input("Introduzca un nuevo número: "))
+        except ValueError:
+            print("WRONG VALUE")
+            new_attempt()
 
-    if N1 == numero_al and intentos < 10:
-        print("Enhorabuena, solamente has necesitado " + str(intentos) + " intentos.")
+    if n_user == al_number and attempts < 10:
+        print(f"CONGRATS...You only has needed {str(attempts)} attempts.")
+        new_attempt()
 
-
-    elif N1 == numero_al and intentos == 10:
-        print("UUUUUUUYYYYYYYYYY, por los pelos....")
-
+    elif n_user == al_number and attempts == 10:
+        print("OOOOMMMMMMMGGGGGG...Just in time....")
+        new_attempt()
 
     else:
-        print("Correcto, pero has necesitado demasiados intentos. Prueba otra vez.")
-        juego_aleatorio()
+        print(f"Correct, but you´ve needed {str(attempts)} attempts. Try it one more time !!!!")
+        new_attempt()
 
 
-juego_aleatorio()
+def new_attempt():
+    option = input("Do you want a new attempt (yes or not)?: ")
+    l_option = option.lower()
+    attempt = 1
 
+    if l_option == "yes":
+        print("<-----New game is ready----->")
+        main()
 
-def nuevo_intento():
-    opcion = input("¿Quiere volver a intentarlo? (Si/No): ")
-    Nuevo_intento = opcion.lower()
-    intentos = 1
+    if l_option == "not":
+        print("Thanks a lot for participate, see you next the time.....")
 
-    if Nuevo_intento == "si":
-        juego_aleatorio()
+    while l_option != "yes" and l_option != "not":
+        option = input("Please, insert a valid answer (yes or not): ")
+        l_option = option.lower()
+        attempt += 1
 
-    if Nuevo_intento == "no":
-        print("Gracias por participar.")
+        if l_option == "yes":
+            print("<-----New game is ready----->")
+            main()
 
-    while Nuevo_intento != "si" and Nuevo_intento != "no":
-        opcion = input("Introduzca una repuesta válida, por favor, (Si/No): ")
-        intentos += 1
+        if l_option == "not":
+            print("Thanks a lot for participate, see you the next time.....")
+            break
 
-        if Nuevo_intento == "si":
-            juego_aleatorio()
-
-        if Nuevo_intento == "no":
-            print("Gracias por participar.")
-
-        if intentos == 5:
+        if attempt == 5:
+            print("Maximum number of attempts exceeded, thanks for participate...Byeee")
+            print("<<<<<<<<<<<<<<<<<GAME OVER>>>>>>>>>>>>>>>>>>")
             break
 
 
-nuevo_intento()
-print("Fin del juego")
+if __name__ == '__main__':
+    main()
